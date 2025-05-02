@@ -1,4 +1,5 @@
 /* Reglas definidas para perfil */
+
 .main {
     display: flex;
     align-items: flex-start;
@@ -11,7 +12,7 @@
 }
 
 .imgContainer img {
-    height: 58vh;
+    height: 25rem;
     border-radius: 90px 0 0 0;
 }
 
@@ -57,6 +58,7 @@
 }
 
 /* Reglas definidas para index */
+
 header {
     color: rgb(255, 255, 255);
     background-color: rgb(49, 50, 53);
@@ -127,8 +129,8 @@ span {
 }
 
 .studentImg {
-    width: 150px;
-    height: 150px;
+    width: 10rem;
+    height: 10rem;
     margin: 0px 0px 0px 0px;
 }
 
@@ -138,8 +140,8 @@ span {
     border-radius: 5px;
     padding: 20px;
     margin: 10px;
-    width: 180px;
-    height: 180px;
+    width: 11.5rem;
+    height: 11.5rem;
     text-align: center;
 }
 
@@ -168,4 +170,249 @@ span {
 #Saludo {
     color: white;
     margin-left: 20px;
+}
+
+/*  Versión RESPONSIVE  */
+
+/* Dispositivos móviles */
+@media (max-width: 480px) {
+    /*  Prueba de fondo     
+    body {
+        background-color: rgb(127, 255, 212);
+    }
+    */
+
+    .imgContainer img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .textContainer {
+        width: 100%;
+        padding: 0px 10px 10px 10px;
+    }
+
+    .textContainer h1 {
+        font-size: 1rem;
+    }
+
+    .textContainer p {
+        font-size: 0.7rem;
+    }
+
+    .textContainer table td {
+        padding: 0px 20px 5px 0px;
+        font-size: 0.7rem;
+    }
+
+    #ATI {
+        font-size: 1.2rem;
+    }
+
+    #Saludo{
+        font-size: 0.7rem;
+    }
+
+    #Bar {
+        display: none;
+    }
+
+    button {
+        font-size: 0.7rem;
+    }
+
+    .textFooter {
+        font-size: 0.7rem;
+    }
+}
+
+/*  iPads y tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    /*  Prueba de fondo     
+    body {
+        background-color: rgb(127, 255, 144)
+    }
+    */
+    
+    .imgContainer img {
+        src: "img/CEDULAPequena.jpg";
+        width: 100%;
+        height: 100%;
+    }
+
+    .textContainer {
+        width: 100%;
+        padding: 0px 10px 10px 10px;
+    }
+
+    .textContainer h1 {
+        font-size: 1.5rem;
+    }
+
+    .textContainer p {
+        font-size: 0.8rem;
+    }
+
+    .textContainer table td {
+        padding: 0px 20px 5px 0px;
+        font-size: 0.8rem;
+    }
+
+    #ATI {
+        font-size: 1.5rem;
+    }
+
+    #Saludo{
+        font-size: 0.9rem;
+    }
+
+    #Bar {
+        width: 6rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    .textFooter {
+        font-size: 0.9rem;
+    }
+}
+
+/*  Pantallas pequeñas  */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /*  Prueba de fondo
+    body {
+        background-color: rgb(255, 232, 127)
+    }
+    */
+    
+    .imgContainer img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .textContainer {
+        width: 100%;
+        padding: 0px 10px 10px 10px;
+    }
+
+    .textContainer h1 {
+        font-size: 1.8rem;
+    }
+
+    .textContainer p {
+        font-size: 0.9rem;
+    }
+
+    .textContainer table td {
+        padding: 0px 20px 5px 0px;
+        font-size: 0.9rem;
+    }
+
+    #ATI {
+        font-size: 2rem;
+    }
+
+    #Saludo{
+        font-size: 1.2rem;
+    }
+
+    #Bar {
+        width: 8rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    .studentImg {
+        width: 180px;
+        height: 180px;
+        margin: 0px 0px 0px 0px;
+    }
+    
+    .profileContainer {
+        width: 14rem;
+        height: 14rem;
+    }
+
+    .studentName {
+        color: rgb(49, 50, 53);
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .textFooter {
+        font-size: 1rem;
+    }
+}
+
+/*  Pantallas grandes   */
+@media (min-width: 1025px)  {
+    /*  Prueba de fondo
+    body {
+        background-color: rgb(255, 153, 127)
+    }
+    */
+    
+    .imgContainer img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .textContainer {
+        width: 100%;
+        padding: 0px 10px 10px 10px;
+    }
+
+    .textContainer h1 {
+        font-size: 2rem;
+    }
+
+    .textContainer p {
+        font-size: 1rem;
+    }
+
+    .textContainer table td {
+        padding: 0px 20px 5px 0px;
+        font-size: 1rem;
+    }
+
+    #ATI {
+        font-size: 2rem;
+    }
+
+    #Saludo{
+        font-size: 1.2rem;
+    }
+
+    #Bar {
+        width: 10rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+
+    .studentImg {
+        width: 180px;
+        height: 180px;
+        margin: 0px 0px 0px 0px;
+    }
+    
+    .profileContainer {
+        width: 14rem;
+        height: 14rem;
+    }
+
+    .studentName {
+        color: rgb(49, 50, 53);
+        font-size: 1.3rem;
+        line-height: 1.5;
+    }
+
+    .textFooter {
+        font-size: 1.2rem;
+    }
 }
