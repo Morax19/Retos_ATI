@@ -1,14 +1,14 @@
-const perfil = {
-	"nombre": "Darwin R. Guaimacuto N.",
-	"descripcion": "Soy estudiante de Licenciatura en Computación de la UCV, estoy interesado en el área de Big Data, Minería de Datos e Inteligencia de Negocios. Me gusta Jugar Videojuegos, Leer, Hacer Ejercicio, Estudiar, Aprender cosas nuevas, entre otras.",
-	"color": "Negro",
-	"libro": ["Me gustan varios"],
-	"serie": ["Breaking Bad"],
-	"musica": ["Rock"],
-	"video_juego": ["Super Mario", "The Legend of Zelda", "The Last of Us", "Gears of War", "RE", "Silent Hill", "entre otros"],
-	"lenguajes": ["C++", "HTML", "R", "Phyton", "Java", "PL/SQL"],
-	"email": "dguaima@gmail.com",
+{
+	"nombre": "Carlos Ruiz",
+	"descripcion": "Ingeniero en computación con experiencia en desarrollo de videojuegos y simulaciones.",
+	"color": "Amarillo",
+	"libro": "Ready Player One",
+	"musica": "Electrónica",
+	"video_juego": ["Fortnite", "Minecraft"],
+	"lenguajes": ["C++", "C#", "Unity"],
+	"email": "carlosruiz@gmail.com",
 	"ci": "18819509",
-	"genero": "Masculino",
-	"fecha_nacimiento": "31/03/1990"
+	"genero": "masculino",
+	"fecha_nacimiento": "15/09/1988",
+	"imagen": "18819509.jpg"
 }

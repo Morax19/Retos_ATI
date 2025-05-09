@@ -1,13 +1,14 @@
-const perfil = {
-	"nombre":"Raquel Escalante Salazar",
-	"descripcion":"Soy estudiante de Licenciatura en Computación, interesada en las áreas de Desarrollo Web, Redes e Inteligencia Artificial. Siempre he tenido cierta pasión por el diseño gráfico y como hobby, me gusta practicarlo con manipulación de imágenes, lo cual me ha impulsado a ver el desarrollo en el área visual e interactiva como una profesión viable y que podría disfrutar muchísimo.",
-	"color": "Magenta",
-	"libro": ["El Conde de Montecristo"],
-	"musica":["Rock", "Chillstep", "Soundtracks"],
-	"video_juego":["Halo","Ace Attorney"],
-	"lenguajes":["Python","JavaScript","C++","R"],
-	"email":"escalante.raquelj@gmail.com",
-	"ci":"19371273",
-	"genero":"femenino",
-	"fecha_nacimiento":"16/08/1990"
+{
+	"nombre": "Diego Ramírez",
+	"descripcion": "Ingeniero de software con experiencia en desarrollo móvil y aplicaciones nativas.",
+	"color": "Amarillo",
+	"libro": "El Hobbit",
+	"musica": "Indie Rock",
+	"video_juego": ["Clash Royale", "PUBG"],
+	"lenguajes": ["Kotlin", "Swift", "Java"],
+	"email": "diegoramirez@gmail.com",
+	"ci": "19371273",
+	"genero": "masculino",
+	"fecha_nacimiento": "30/01/1992",
+	"imagen": "19371273.jpg"
 }

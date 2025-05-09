@@ -1,0 +1,14 @@
+{
+	"nombre": "Daniel Hernández",
+	"descripcion": "Soy estudiante de Computación en la UCV. Me interesa el mundo de los datos, por lo que mis áreas preferidas de la carrera son aquellas relacionadas, por ejemplo, Inteligencia Artificial, Minería de Datos. Disfruto de jugar al fútbol y ver series en mi tiempo libre.",
+	"color": "Verde",
+	"libro": "En general disfruto los libros de texto.",
+	"musica": ["Rock clásico", "salsa", "pop"],
+	"video_juego": ["Wuthering Waves", "Call of Duty", "juegos de exploración", "estrategias", "plataformas."],
+	"lenguajes": ["Python", "R", "C++", "C"],
+	"email": "danielhdez19@gmail.com",
+	"ci": "27795163",
+	"genero": "masculino",
+	"fecha_nacimiento": "19/11/1999",
+    "imagen": "27795163.jpg"
+}
