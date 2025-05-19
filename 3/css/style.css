@@ -7,17 +7,19 @@
 }
 
 .imgContainer {
-    margin-right: 5px;
+    display: inline-block;
+    width: 30%;
     height: 100%;
+    padding: 0px 20px 0px 0px;
 }
 
-.imgContainer img {
-    height: 25rem;
+#imgPerfil {
     border-radius: 90px 0 0 0;
 }
 
 .textContainer {
     width: 70%;
+    height: auto;
     border: 1px solid black;
     padding: 0px 20px 20px 20px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
