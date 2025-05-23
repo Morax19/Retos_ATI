@@ -1,14 +1,14 @@
-{
-	"nombre": "Ana Gómez",
-	"descripcion": "Especialista en bases de datos y análisis de datos. Me encanta resolver problemas complejos con soluciones simples.",
-	"color": "Rojo",
-	"libro": "El Alquimista",
-	"musica": "Pop",
-	"video_juego": ["Among Us", "Tetris"],
-	"lenguajes": ["SQL", "R", "Python"],
-	"email": "anagomez@gmail.com",
-	"ci": "18110561",
-	"genero": "femenino",
-	"fecha_nacimiento": "22/03/1990",
+{	
+	"nombre":"Karl Correa",
+	"descripcion":"Soy estudiante de Computación en la UCV. Me interesa el área de innovación tecnológica en el ámbito web. Trabajo en el área de educación a distancia dando soporte a los usuarios del Campus Virtual UCV.",
+	"color": "Verde",
+	"libro": ["Guardianes de la noche"],
+	"musica": ["Cualquiera a excepción del vallenato, cumbia y regueton"],
+	"video_juego": ["Final fantasy's series", "TES: Skyrim", "League of Legends", "Archeage"],
+	"lenguajes": ["java", "c/c++", "python"],
+	"email":"karl.correa.88@gmail.com",
+	"ci":"18110561",
+	"genero": "masculino",
+	"fecha_nacimiento":"23/04/1988",
 	"imagen": "18110561.jpg"
 }

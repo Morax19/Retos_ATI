@@ -1,14 +1,14 @@
-{
-	"nombre": "Sofía Martínez",
-	"descripcion": "Diseñadora gráfica con experiencia en diseño web y branding. Apasionada por el arte y la creatividad.",
-	"color": "Morado",
-	"libro": "El Principito",
-	"musica": "Indie",
-	"video_juego": ["Animal Crossing", "The Sims"],
-	"lenguajes": ["HTML", "CSS", "JavaScript"],
-	"email": "sofiamartinez@gmail.com",
-	"ci": "18829705",
-	"genero": "femenino",
-	"fecha_nacimiento": "10/07/1992",
+{	
+	"nombre":"Leopoldo Enrique Izquierdo Carias",
+	"descripcion":"Soy estudiante de computacion en la Universidad Central de Venezuela. Tengo inclinacion por la rama de computacion grafica, y espero adquirir los suficientes conocimientos de esa área para lograr emprender por mi cuenta desarrollando aplicaciones moviles que hagan uso del API grafico.",
+	"color": "Verde",
+	"libro": ["El caballero de la armadura oxidada"],
+	"musica": ["Reggae"],
+	"video_juego": ["Zelda: Ocarina Of Time"],
+	"lenguajes":["Java", "C/C++", "Javascript", "Python"],
+	"email":"leopoldo.izquierdo.xyz@gmail.com",
+	"ci":"18829705",
+	"genero":"masculino",
+	"fecha_nacimiento":"12/09/1988",
 	"imagen": "18829705.jpg"
 }

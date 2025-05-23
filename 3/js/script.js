@@ -67,6 +67,8 @@ async function fetchDataPerfil(cedula) {
         const profileData = await response.json();
         console.log("Datos de perfil cargados.");
 
+        document.title = `${profileData.nombre}`;
+
         const imgPerfil = document.getElementById("imgPerfil");
         imgPerfil.src = `${CI}/${profileData.imagen}`;
         imgPerfil.alt = `Imagen de perfil de ${profileData.nombre}`;
@@ -104,7 +106,7 @@ async function fetchDataPerfil(cedula) {
 if (fileName === "perfil.html") {
     document.addEventListener("DOMContentLoaded", function () {
         const URLParams = new URLSearchParams(window.location.search);
-        const CI = URLParams.get("CI");
+        const CI = URLParams.get("ci") || "27795163"; // Updated to use 'ci' as the parameter name
         const lang = URLParams.get("lang");
         initData(lang);
         fetchDataPerfil(CI);
