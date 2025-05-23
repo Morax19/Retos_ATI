@@ -158,6 +158,7 @@ async function initIndex(lang) {
     }
 }
 
+// Cargando los alumos en la pagina
 async function fecthStudentData() {
     console.log("Cargando alumnos...");
 
@@ -166,7 +167,6 @@ async function fecthStudentData() {
         const studentData = await response.json();
         console.log("Alumnos cargados.");
 
-        // Cargando los alumos en la pagina
         const mainContainer = document.getElementById("mainContainer");
 
         if (mainContainer && Array.isArray(studentData)) {
