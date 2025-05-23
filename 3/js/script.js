@@ -49,7 +49,7 @@ async function initData(lang) {
         dataLang.textContent = data.lenguajes;
 
         const dataEmail = document.getElementById("email1");
-        dataEmail.textContent = data.email;
+        dataEmail.textContent = data.email + ": ";
     }
     catch (error){
         console.error("Error cargando el JSON:", error);
@@ -74,6 +74,9 @@ async function fetchDataPerfil(cedula) {
         const name = document.getElementById("name");
         name.textContent = profileData.nombre;
 
+        const description = document.getElementById("description");
+        description.textContent = profileData.descripcion;
+
         const dataColor = document.getElementById("favColor2");
         dataColor.textContent = profileData.color;
 
@@ -91,6 +94,7 @@ async function fetchDataPerfil(cedula) {
 
         const dataEmail = document.getElementById("email2");
         dataEmail.textContent = profileData.email;
+        dataEmail.href = `mailto:${profileData.email}`;
 
     } catch (error) {
         console.error("Error al cargar el archivo JSON:", error);
@@ -161,48 +165,85 @@ async function fecthStudentData() {
         console.log("Alumnos cargados.");
 
         // Cargando los alumos en la pagina
-        const contenedorPrincipal = document.getElementById('contenedor-principal'); // Asegúrate de tener un elemento con este ID en tu HTML
+        const mainContainer = document.getElementById("mainContainer");
 
-        if (contenedorPrincipal && Array.isArray(alumnos)) {
-            alumnos.forEach(persona => {
-                // Crear el elemento <ul>
-                const ulElement = document.createElement('ul');
-                ulElement.classList.add('cuadro-informativo');
-                ulElement.addEventListener('click', function () {
-                    const ci = persona.ci; // Cambia esto según la estructura de tu JSON
-                    window.location.href = `perfil.html?ci=${persona.ci}`; // Cambia esto según la estructura de tu URL
-                }
-                );
-                // Crear el elemento <li>
-                const liElement = document.createElement('li');
-                liElement.classList.add('titulo-cuadro');
+        if (mainContainer && Array.isArray(studentData)) {
+            studentData.forEach(student => {
+                const ulProfile = document.createElement("ul");
+                ulProfile.classList.add("profileContainer");
+                ulProfile.addEventListener("click", function () {
+                    const CI = student.ci;
+                    window.location.href = `perfil.html?ci=${CI}`;
+                });
 
-                // Crear la imagen <img>
-                const imgElement = document.createElement('img');
-                imgElement.classList.add('img-index');
-                imgElement.src = `${persona.imagen}`; // Usamos la ruta de la imagen del JSON
-                imgElement.alt = persona.nombre; // Usamos el nombre como texto alternativo
+                const titleProfile = document.createElement("li");
+                titleProfile.classList.add("titleContainer");
 
-                // Crear el párrafo <p> para el nombre
-                const pElement = document.createElement('p');
-                pElement.classList.add('contenido-cuadro');
-                pElement.textContent = persona.nombre;
+                const imgProfile = document.createElement("img");
+                imgProfile.classList.add("studentImg");
+                imgProfile.src = `${student.imagen}`;
+                imgProfile.alt = `Imagen de perfil de ${student.nombre}`
 
-                // Agregar la imagen y el párrafo al <li>
-                liElement.appendChild(imgElement);
-                liElement.appendChild(pElement);
+                const profileName = document.createElement("p");
+                profileName.classList.add("studentName");
+                profileName.textContent = student.nombre;
 
-                // Agregar el <li> al <ul>
-                ulElement.appendChild(liElement);
+                titleProfile.appendChild(imgProfile);
+                titleProfile.appendChild(profileName);
 
-                // Agregar el <ul> al contenedor principal en tu HTML
-                contenedorPrincipal.appendChild(ulElement);
+                ulProfile.appendChild(titleProfile);
+
+                mainContainer.appendChild(ulProfile);
             });
         } else {
-            console.error('El contenedor principal no se encontró o los datos JSON no son un array.');
+            console.error("Error al cargar la lista de estudiantes.");
         }
 
     } catch (error) {
-        console.error('Error al cargar el archivo JSON:', error);
+        console.error("Error cargando el JSON: ", error);
     }
+}
+
+if (fileName === "index.html") {
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang'); 
+        initIndex(lang);
+        fecthStudentData();
+
+        indexButton = document.getElementById("Button");
+
+        indexButton.addEventListener("click", function () {
+            if (document.getElementById("errorMsg")) {
+                document.getElementById("errorMsg").remove();
+            }
+
+            const inputData = document.getElementById("Bar");
+            strData = (inputData.value).toString();
+            strData = strData.toUpperCase();
+            console.log(strData);
+
+            const mainContainer = document.getElementById("mainContainer");
+            const ulStudents = mainContainer.querySelectorAll("ul");
+            let it = 0;
+            
+            ulStudents.forEach(function (lista) {
+                const studentName = lista.querySelector(".studentName").textContent;
+                const studentNameUPPER = studentName.toUpperCase();
+                const isIn = studentNameUPPER.includes(strData);
+                console.log(isIn);
+             if (!isIn) {
+                    lista.style.display = 'none';
+                    it++;
+                }else {
+                    lista.style.display = 'block';
+                }
+            });
+
+            if (it === ulStudents.length) {
+                document.getElementById("mainContainer").insertAdjacentHTML("beforeend", `<h2 id="errorMsg">No se encontraron coincidencias</h2>`);
+                document.getElementById("errorMsg").style.color =rgb(49, 50, 53);
+            }
+        });
+    })
 }
