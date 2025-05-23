@@ -243,8 +243,8 @@ if (fileName === "index.html") {
             });
 
             if (it === ulStudents.length) {
-                document.getElementById("mainContainer").insertAdjacentHTML("beforeend", `<h2 id="errorMsg">No se encontraron coincidencias</h2>`);
-                document.getElementById("errorMsg").style.color =rgb(49, 50, 53);
+                document.getElementById("mainContainer").insertAdjacentHTML("beforeend", `<h2 id="errorMsg">No hay alumnos que tengan en su nombre: ${strData}</h2>`);
+                document.getElementById("errorMsg").style.color = rgb(49, 50, 53);
             }
         });
     })
