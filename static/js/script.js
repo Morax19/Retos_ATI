@@ -2,10 +2,11 @@
 const pathName = window.location.pathname;
 const fileName = pathName.substring(pathName.lastIndexOf('/') + 1);
 
-// Redirect to default URL if pathname is empty or doesn't include a filename
+/* Redirect to default URL if pathname is empty or doesn't include a filename
 if (!fileName || fileName === "") {
     window.location.pathname = "/index.html";
 }
+*/
 
 const langPage = new URLSearchParams(window.location.search);
 
