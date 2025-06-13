@@ -34,7 +34,7 @@ async function initData(lang) {
     }
 
     try{
-        const response = await fetch(`conf/${idioma}`);
+        const response = await fetch(`/data/conf/${idioma}`);
         const data = await response.json();
         console.log("JSON Cargado");
 
@@ -61,21 +61,20 @@ async function initData(lang) {
     }
 }
 
-//  Perfil.html
 //  Carga de datos
 async function fetchDataPerfil(cedula) {
     console.log("Cargando datos...");
     let CI = cedula ? cedula : "27795163";
     
     try {
-        const response = await fetch(`${CI}/perfil.json`);
+        const response = await fetch(`/data/${CI}/perfil.json`);
         const profileData = await response.json();
         console.log("Datos de perfil cargados.");
 
         document.title = `${profileData.nombre}`;
 
         const imgPerfil = document.getElementById("imgPerfil");
-        imgPerfil.src = `${CI}/${profileData.imagen}`;
+        imgPerfil.src = `/data/${CI}/${profileData.imagen}`;
         imgPerfil.alt = `Imagen de perfil de ${profileData.nombre}`;
 
         const name = document.getElementById("name");
@@ -108,15 +107,107 @@ async function fetchDataPerfil(cedula) {
     }
 }
 
-if (fileName === "perfil.html") {
-    document.addEventListener("DOMContentLoaded", function () {
-        const URLParams = new URLSearchParams(window.location.search);
-        const CI = URLParams.get("ci") || "27795163"; // Updated to use 'ci' as the parameter name
-        const lang = URLParams.get("lang");
-        initData(lang);
-        fetchDataPerfil(CI);
-    })
+// SPA: Render de perfil de forma dinámica
+function renderProfileView(profileData) {
+    const profileView = document.getElementById("profileView");
+    profileView.innerHTML = `
+    <div class="main">
+        <picture class="imgContainer">
+            <img id="imgPerfil" src="/data/${profileData.ci}/${profileData.imagen}" alt="Imagen de perfil de ${profileData.nombre}">
+        </picture>
+        <div class="textContainer">
+            <h1 id="name">${profileData.nombre}</h1>
+            <p id="description">${profileData.descripcion}</p>
+            <table>
+                <tr><td id="favColor2">${profileData.color}</td></tr>
+                <tr><td id="favBook2">${profileData.libro}</td></tr>
+                <tr><td id="favMusic2">${profileData.musica}</td></tr>
+                <tr><td id="favGames2">${profileData.video_juego}</td></tr>
+                <tr><td id="favLang2"><b>${profileData.lenguajes}</b></td></tr>
+            </table>
+            <div class="emailContainer">
+                <a id="email2" href="mailto:${profileData.email}">${profileData.email}</a>
+            </div>
+            <button id="backButton">Volver</button>
+        </div>
+    </div>
+    `;
+    document.getElementById("mainView").style.display = "none";
+    profileView.style.display = "block";
+    document.getElementById("backButton").onclick = function() {
+        history.pushState({}, '', '/');
+        showMainView();
+    };
 }
+
+function showMainView() {
+    document.getElementById("profileView").style.display = "none";
+    document.getElementById("mainView").style.display = "block";
+}
+
+// SPA: Render perfil al hacer click a un estudiante
+async function fecthStudentData() {
+    console.log("Cargando alumnos...");
+    try {
+        const response = await fetch('/data/index.json');
+        const studentData = await response.json();
+        console.log("Alumnos cargados.");
+        const mainContainer = document.getElementById("mainContainer");
+        mainContainer.innerHTML = '';
+        if (mainContainer && Array.isArray(studentData)) {
+            studentData.forEach(student => {
+                const ulProfile = document.createElement("ul");
+                ulProfile.classList.add("profileContainer");
+                ulProfile.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    history.pushState({ci: student.ci}, '', `?ci=${student.ci}`);
+                    loadProfile(student.ci);
+                });
+                const titleProfile = document.createElement("li");
+                titleProfile.classList.add("titleContainer");
+                const imgProfile = document.createElement("img");
+                imgProfile.classList.add("studentImg");
+                imgProfile.src = `/data/${student.imagen}`;
+                imgProfile.alt = `Imagen de perfil de ${student.nombre}`;
+                const profileName = document.createElement("p");
+                profileName.classList.add("studentName");
+                profileName.textContent = student.nombre;
+                titleProfile.appendChild(imgProfile);
+                titleProfile.appendChild(profileName);
+                ulProfile.appendChild(titleProfile);
+                mainContainer.appendChild(ulProfile);
+            });
+        } else {
+            console.error("Error al cargar la lista de estudiantes.");
+        }
+    } catch (error) {
+        console.error("Error cargando el JSON: ", error);
+    }
+}
+
+// SPA: Cargar perfil y renderizar info
+async function loadProfile(ci) {
+    try {
+        const response = await fetch(`/data/${ci}/perfil.json`);
+        const profileData = await response.json();
+        renderProfileView({...profileData, ci});
+    } catch (error) {
+        console.error("Error al cargar el perfil:", error);
+    }
+}
+
+// SPA: Manejo de rutas
+function handleRoute() {
+    const params = new URLSearchParams(window.location.search);
+    const ci = params.get('ci');
+    if (ci) {
+        loadProfile(ci);
+    } else {
+        showMainView();
+    }
+}
+
+window.addEventListener('popstate', handleRoute);
 
 //  Index.html
 //  Carga de datos
@@ -138,7 +229,7 @@ async function initIndex(lang) {
     }
 
     try {
-        const response = await fetch(`conf/${idioma}`);
+        const response = await fetch(`/data/conf/${idioma}`);
         const index = await response.json();
 
         const profileData = await fetch("27795163/perfil.json");
@@ -168,7 +259,7 @@ async function fecthStudentData() {
     console.log("Cargando alumnos...");
 
     try {
-        const response = await fetch('datos/index.json');
+        const response = await fetch('/data/index.json');
         const studentData = await response.json();
         console.log("Alumnos cargados.");
 
@@ -217,6 +308,7 @@ if (fileName === "index.html") {
         const lang = urlParams.get('lang'); 
         initIndex(lang);
         fecthStudentData();
+        handleRoute();
 
         indexButton = document.getElementById("Button");
 
